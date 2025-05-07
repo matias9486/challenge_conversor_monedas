@@ -63,7 +63,7 @@ public class MonedaConversionDTO {
         this.montoOriginal = montoOriginal;
     }
 
-    public double convertirMonto(double montoOriginal){
+    public double convertirMonto(){
         return this.montoOriginal * valorConversion;
     }
 
@@ -71,7 +71,7 @@ public class MonedaConversionDTO {
     public String toString() {
         return
                 "Monto original = $" + montoOriginal + " "+ monedaActual.getDescripcion() + "("+ monedaActual + ")" +
-                "\nMonto convertido = $" + convertirMonto(montoOriginal) + " " + monedaDestino.getDescripcion() + "("+ monedaDestino +")" +
+                "\nMonto convertido = $" + convertirMonto() + " " + monedaDestino.getDescripcion() + "("+ monedaDestino +")" +
                 "\nValor de conversión del "+ monedaDestino.getDescripcion() +" = $" + valorConversion
                 ;
     }
