@@ -1,7 +1,7 @@
 # Conversor de Monedas en Java
 Este proyecto es una aplicación de consola desarrollada en **Java 17** como parte de la formación en Java de **Alura**.
 
-Su propósito es aplicar conocimientos adquiridos como progrmación orientada a objetos, el consumo de APIs, manejo de JSON, escritura/lectura de archivos, manejo de excepciones y uso de bibliotecas externas como `Gson`.
+Su propósito es aplicar conocimientos adquiridos como programación orientada a objetos, el consumo de APIs, manejo de JSON, escritura/lectura de archivos, manejo de excepciones y uso de bibliotecas externas como `Gson`.
 
 ## 🚀 Descripción
 La aplicación permite realizar **conversiones entre diferentes monedas** utilizando datos actualizados desde la API de **ExchangeRate**.
@@ -66,4 +66,31 @@ A continuación se muestran algunas imágenes del funcionamiento de la aplicaci�
 ✅ Requisitos
 - JDK 17 instalado
 - Conexión a internet para consumir la API
-- Gson como dependencia (puede agregarse descargando el JAR)
+- Gson como dependencia (agregar JAR descargado en directorio Lib)
+  - Acceder a la estructura del proyecto para agregar el jar(File -> Project Structure)
+
+  <a href="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/9_project_structure.png" target="_blank"><img src="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/9_project_structure.png" alt="Estructura_proyecto"></a>
+  <br> 
+
+  - Agregar el jar de gson(Project settings -> Modules y tocar en el icono + y elegir JARS o directories y elegir el archivo gson ubicado en directorio Lib de éste proyecto)
+
+  <a href="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/10_agregar_gson_proyecto.png" target="_blank"><img src="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/10_agregar_gson_proyecto.png" alt="Agregar_gson"></a>
+  <br>
+
+- Generar cuenta en https://www.exchangerate-api.com/ para generar tu propia ApiKey
+- Agregar la ApiKey como variable de entorno. Ejemplo desde Intellij:
+  1. Modificar la configuración de ejecución. Desde la pestaña Run, puedo tocar en el icono 🔧 (Modify run configuration)  
+  
+  <a href="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/6_editar_configuracion.png" target="_blank"><img src="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/6_editar_configuracion.png" alt="Configuracion_aplicacion"></a>
+  <br>
+
+  2. Accediendo a variables de entorno(tocar en Enviroment Variables):
+  
+  <a href="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/7_modificar_configuracion.png" target="_blank"><img src="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/7_modificar_configuracion.png" alt="accediendo_variables_entorno"></a>
+  <br>  
+  
+  3. Agregar variable de entorno(tocar en el icono + y agregar como clave ExchangeApiKey y como valor tu clave generada):
+  
+  <a href="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/8_api_key.png" target="_blank"><img src="https://raw.githubusercontent.com/matias9486/challenge_conversor_monedas/refs/heads/main/screenshot/8_api_key.png" alt="agregando_api_key"></a>
+  <br>
+
