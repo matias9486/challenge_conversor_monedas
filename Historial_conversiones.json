@@ -38,5 +38,15 @@
       "conversion_rate": 5.7201,
       "montoOriginal": 10.0
     }
+  },
+  {
+    "fechaRegistro": "2025-05-07T23:07:00.1549225",
+    "registroConversion": {
+      "result": "success",
+      "base_code": "USD",
+      "target_code": "ARS",
+      "conversion_rate": 1153.5,
+      "montoOriginal": 5.0
+    }
   }
 ]
