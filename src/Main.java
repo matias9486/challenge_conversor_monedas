@@ -1,8 +1,13 @@
 import com.alura.conversor_moneda.model.dto.MonedaConversionDTO;
+import com.alura.conversor_moneda.model.dto.RegistroConversionDTO;
 import com.alura.conversor_moneda.service.ExchangeRateService;
 import com.alura.conversor_moneda.model.enums.Moneda;
 import com.alura.conversor_moneda.model.exception.ExchangeRateException;
+import com.alura.conversor_moneda.service.RegistroConversionService;
+import com.alura.conversor_moneda.utils.GestorArchivoRegistros;
+
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +16,12 @@ public class Main {
         int opcion;
         ExchangeRateService cotizacionService = new ExchangeRateService();
         Moneda monedaActual, monedaConversion;
+
+        RegistroConversionDTO registro;
+        RegistroConversionService registroService = new RegistroConversionService();
+
+        GestorArchivoRegistros gestorArchivo = new GestorArchivoRegistros();
+        registroService.agregarRegistros(gestorArchivo.cargarRegistros());
 
         while (true) {
             System.out.print("""
@@ -23,7 +34,10 @@ public class Main {
                 4) Real Brasileño -> Dólar
                 5) Dólar -> Peso Colombiano
                 6) Peso Colombiano -> Dólar
-                7) Salir
+                7) Dólar -> Peso chileno
+                8) Peso chileno -> Dólar
+                9) Ver registro de conversiones
+                10) Salir
 
                 Elija una opción:                 
                 """);
@@ -35,7 +49,7 @@ public class Main {
                 continue;
             }
 
-            if (opcion == 7) {
+            if (opcion == 10) {
                 System.out.println("¡Gracias por usar el conversor!");
                 break;
             }
@@ -47,6 +61,17 @@ public class Main {
                 case 4 -> { monedaActual = Moneda.BRL; monedaConversion = Moneda.USD; }
                 case 5 -> { monedaActual = Moneda.USD; monedaConversion = Moneda.COP; }
                 case 6 -> { monedaActual = Moneda.COP; monedaConversion = Moneda.USD; }
+                case 7 -> { monedaActual = Moneda.USD; monedaConversion = Moneda.CLP; }
+                case 8 -> { monedaActual = Moneda.CLP; monedaConversion = Moneda.USD; }
+                case 9 -> {
+                    if(registroService.obtenerRegistros().isEmpty())
+                        System.out.println("No se registraron conversiones aún.");
+                    else {
+                        System.out.println("\n\uD83D\uDCDD Registro de conversiones:");
+                        registroService.obtenerRegistros().forEach(r -> System.out.println("\t" + r));
+                    }
+                    continue;
+                }
                 default -> {
                     System.out.println("❌ Por favor, ingrese una opción inválida.");
                     continue;
@@ -75,6 +100,12 @@ public class Main {
                                 montoConvertido.getMonedaDestino(),
                                 montoConvertido.getValorConversion()
                 ));
+
+                //Creación de registro y guardado en colección
+                registro = new RegistroConversionDTO(LocalDateTime.now(), montoConvertido);
+                registroService.agregarRegistro(registro);
+
+                gestorArchivo.guardarRegistros(registroService.obtenerRegistros());
 
             } catch (IOException | InterruptedException | NumberFormatException e) {
                 System.out.println("\n❌ Se ha producido un error. " + e.getMessage() +"\n");
