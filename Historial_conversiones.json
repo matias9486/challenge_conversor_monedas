@@ -1,0 +1,42 @@
+[
+  {
+    "fechaRegistro": "2025-05-07T21:10:13.8137463",
+    "registroConversion": {
+      "result": "success",
+      "base_code": "USD",
+      "target_code": "ARS",
+      "conversion_rate": 1153.5,
+      "montoOriginal": 10.0
+    }
+  },
+  {
+    "fechaRegistro": "2025-05-07T21:14:06.2530168",
+    "registroConversion": {
+      "result": "success",
+      "base_code": "ARS",
+      "target_code": "USD",
+      "conversion_rate": 8.6693E-4,
+      "montoOriginal": 10000.0
+    }
+  },
+  {
+    "fechaRegistro": "2025-05-07T21:17:45.6678398",
+    "registroConversion": {
+      "result": "success",
+      "base_code": "USD",
+      "target_code": "CLP",
+      "conversion_rate": 939.7434,
+      "montoOriginal": 10.0
+    }
+  },
+  {
+    "fechaRegistro": "2025-05-07T21:42:16.304997",
+    "registroConversion": {
+      "result": "success",
+      "base_code": "USD",
+      "target_code": "BRL",
+      "conversion_rate": 5.7201,
+      "montoOriginal": 10.0
+    }
+  }
+]
