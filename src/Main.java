@@ -73,7 +73,7 @@ public class Main {
                     continue;
                 }
                 default -> {
-                    System.out.println("❌ Por favor, ingrese una opción inválida.");
+                    System.out.println("❌ Por favor, ingrese una opción válida.");
                     continue;
                 }
             }
